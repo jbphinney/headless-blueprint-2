@@ -11,7 +11,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dev": "faust dev",
+  "build": "faust build",
+  "generate": "faust generatePossibleTypes",
+  "start": "faust start"
   },
   "author": "",
   "license": "ISC"
