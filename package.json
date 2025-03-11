@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "dev": "faust dev",
     "build": "faust build",
     "generate": "faust generatePossibleTypes",
@@ -12,6 +13,12 @@
     "wpe-build": "faust build",
     "format": "prettier --write './**/*.{js,jsx,md,mdx,css,scss}'",
     "format:check": "prettier --check './**/*.{js,jsx,md,mdx,css,scss}'"
+=======
+  "dev": "faust dev",
+  "build": "faust build",
+  "generate": "faust generatePossibleTypes",
+  "start": "faust start"
+>>>>>>> 3a1f2e2268ac5031f7f84426e09f0b1034d7ca4d
   },
   "dependencies": {
     "@apollo/client": "3.7.0",
