@@ -15,6 +15,39 @@ import styles from './Footer.module.scss';
 
 let cx = classNames.bind(styles);
 
+const SOCIAL_LINKS_MAP = [
+  {
+    key: 'twitterUrl',
+    icon: FaTwitter,
+    title: 'Twitter',
+  },
+  {
+    key: 'facebookUrl',
+    icon: FaFacebookF,
+    title: 'Facebook',
+  },
+  {
+    key: 'instagramUrl',
+    icon: FaInstagram,
+    title: 'Instagram',
+  },
+  {
+    key: 'youtubeUrl',
+    icon: FaYoutube,
+    title: 'YouTube',
+  },
+  {
+    key: 'githubUrl',
+    icon: FaGithub,
+    title: 'GitHub',
+  },
+  {
+    key: 'linkedinUrl',
+    icon: FaLinkedinIn,
+    title: 'LinkedIn',
+  },
+];
+
 /**
  * The Blueprint's Footer component
  * @return {React.ReactElement} The Footer component.
@@ -26,92 +59,25 @@ export default function Footer({ menuItems }) {
         {appConfig?.socialLinks && (
           <div className={cx('social-links')}>
             <ul aria-label="Social media">
-              {appConfig.socialLinks?.twitterUrl && (
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cx('social-icon-link')}
-                    href={appConfig.socialLinks.twitterUrl}
-                  >
-                    <FaTwitter title="Twitter" className={cx('social-icon')} />
-                  </a>
-                </li>
-              )}
-
-              {appConfig.socialLinks?.facebookUrl && (
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cx('social-icon-link')}
-                    href={appConfig.socialLinks.facebookUrl}
-                  >
-                    <FaFacebookF
-                      title="Facebook"
-                      className={cx('social-icon')}
-                    />
-                  </a>
-                </li>
-              )}
-
-              {appConfig.socialLinks?.instagramUrl && (
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cx('social-icon-link')}
-                    href={appConfig.socialLinks.instagramUrl}
-                  >
-                    <FaInstagram
-                      title="Instagram"
-                      className={cx('social-icon')}
-                    />
-                  </a>
-                </li>
-              )}
-
-              {appConfig.socialLinks?.youtubeUrl && (
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cx('social-icon-link')}
-                    href={appConfig.socialLinks.youtubeUrl}
-                  >
-                    <FaYoutube title="YouTube" className={cx('social-icon')} />
-                  </a>
-                </li>
-              )}
-
-              {appConfig.socialLinks?.githubUrl && (
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cx('social-icon-link')}
-                    href={appConfig.socialLinks.githubUrl}
-                  >
-                    <FaGithub title="GitHub" className={cx('social-icon')} />
-                  </a>
-                </li>
-              )}
-
-              {appConfig.socialLinks?.linkedinUrl && (
-                <li>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cx('social-icon-link')}
-                    href={appConfig.socialLinks.linkedinUrl}
-                  >
-                    <FaLinkedinIn
-                      title="LinkedIn"
-                      className={cx('social-icon')}
-                    />
-                  </a>
-                </li>
-              )}
+              {SOCIAL_LINKS_MAP.map((link) => {
+                const url = appConfig.socialLinks[link.key];
+                if (!url) {
+                  return null;
+                }
+                const Icon = link.icon;
+                return (
+                  <li key={link.key}>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cx('social-icon-link')}
+                      href={url}
+                    >
+                      <Icon title={link.title} className={cx('social-icon')} />
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}
