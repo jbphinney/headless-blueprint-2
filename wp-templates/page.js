@@ -33,7 +33,7 @@ export default function Component(props) {
         title={pageTitle(
           props?.data?.generalSettings,
           title,
-          props?.data?.generalSettings?.title
+          props?.data?.generalSettings?.title,
         )}
         description={siteDescription}
         imageUrl={featuredImage?.node?.sourceUrl}

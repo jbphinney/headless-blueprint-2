@@ -38,7 +38,7 @@ export default function Archive(props) {
         title={pageTitle(
           props?.data?.generalSettings,
           `${__typename}: ${name}`,
-          siteTitle
+          siteTitle,
         )}
         description={siteDescription}
       />

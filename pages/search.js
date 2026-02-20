@@ -79,7 +79,7 @@ export default function Page() {
 
           <SearchResults
             searchResults={searchResultsData?.contentNodes?.edges?.map(
-              ({ node }) => node
+              ({ node }) => node,
             )}
             isLoading={searchResultsLoading}
           />

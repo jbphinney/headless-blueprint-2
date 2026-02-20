@@ -20,7 +20,7 @@ export default function Header({ className, menuItems }) {
   const headerClasses = cx('header', className);
   const navClasses = cx(
     'primary-navigation',
-    isNavShown ? cx('show') : undefined
+    isNavShown ? cx('show') : undefined,
   );
 
   return (
