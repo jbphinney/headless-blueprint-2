@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "faust dev",
+    "test": "node --test --require ./test/setup.js",
     "build": "faust build",
     "generate": "faust generatePossibleTypes",
     "start": "faust start",
@@ -31,6 +32,12 @@
     "use-debounce": "8.0.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/register": "^7.28.6",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
     "@wordpress/base-styles": "^4.42.5",
     "@wordpress/block-library": "^8.28.12",
     "dotenv-flow": "^3.2.0",
@@ -38,6 +45,8 @@
     "eslint-config-next": "12.0.10",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
+    "global-jsdom": "^28.0.0",
+    "jsdom": "^28.1.0",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "sass": "^1.54.9"
