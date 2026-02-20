@@ -14,12 +14,14 @@ import {
 } from 'components';
 import { BlogInfoFragment } from 'fragments/GeneralSettings';
 import { useState } from 'react';
+import { useDebounce } from 'use-debounce';
 import { GetSearchResults } from 'queries/GetSearchResults';
 import styles from 'styles/pages/_Search.module.scss';
 import appConfig from 'app.config';
 
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
 
   const { data: pageData } = useQuery(Page.query, {
     variables: Page.variables(),
@@ -39,9 +41,9 @@ export default function Page() {
     variables: {
       first: appConfig.postsPerPage,
       after: '',
-      search: searchQuery,
+      search: debouncedSearchQuery,
     },
-    skip: searchQuery === '',
+    skip: debouncedSearchQuery === '',
     fetchPolicy: 'network-only',
   });
 
@@ -59,8 +61,8 @@ export default function Page() {
         <div className={styles['search-header-pane']}>
           <div className="container small">
             <h2 className={styles['search-header-text']}>
-              {searchQuery && !searchResultsLoading
-                ? `Showing results for "${searchQuery}"`
+              {debouncedSearchQuery && !searchResultsLoading
+                ? `Showing results for "${debouncedSearchQuery}"`
                 : `Search`}
             </h2>
             <SearchInput
