@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FormatDate, LoadingSearchResult } from 'components';
 import { FaSearch } from 'react-icons/fa';
+import DOMPurify from 'isomorphic-dompurify';
 
 import styles from './SearchResults.module.scss';
 
@@ -44,7 +45,7 @@ export default function SearchResults({ searchResults, isLoading }) {
           </div>
           <div
             dangerouslySetInnerHTML={{
-              __html: node.excerpt,
+              __html: DOMPurify.sanitize(node.excerpt),
             }}
           ></div>
         </div>
