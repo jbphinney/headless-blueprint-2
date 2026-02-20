@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { sanitizePath } from '../../utilities';
 import styles from './Button.module.scss';
 
 /**
@@ -37,9 +38,15 @@ export default function Button({
   ].join(' ');
 
   if (href) {
+    const sanitizedHref = sanitizePath(href);
     return (
-      <Link legacyBehavior href={href}>
-        <a role="button" href={href} className={buttonClassName} {...props}>
+      <Link legacyBehavior href={sanitizedHref}>
+        <a
+          role="button"
+          href={sanitizedHref}
+          className={buttonClassName}
+          {...props}
+        >
           {children}
         </a>
       </Link>
