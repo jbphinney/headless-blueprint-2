@@ -18,17 +18,7 @@ export default function Button({
   children,
   ...props
 }) {
-  let buttonStyle;
-  switch (styleType) {
-    case 'secondary': {
-      buttonStyle = 'secondary';
-      break;
-    }
-    default: {
-      buttonStyle = 'primary';
-      break;
-    }
-  }
+  const buttonStyle = styleType === 'secondary' ? 'secondary' : 'primary';
 
   let buttonClassName = [
     styles.button,
