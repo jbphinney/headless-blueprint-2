@@ -1,5 +1,6 @@
-import appConfig from 'app.config';
 import { useRef, useEffect, useState } from 'react';
+
+import appConfig from '../app.config.js';
 
 /**
  * The `useFocusFirstNewResult` hook provides the ability to set the focus
@@ -27,7 +28,7 @@ export default function useFocusFirstNewResult(posts) {
         return focusIndex;
       });
     }
-  }, [posts, firstNewResultIndex]);
+  }, [posts]);
 
   return { firstNewResultRef, firstNewResultIndex };
 }
