@@ -6,10 +6,6 @@ export default function NavigationMenu({ menuItems, className, children }) {
     return null;
   }
 
-  if (!menuItems) {
-    return null;
-  }
-
   return (
     <nav
       className={className}
