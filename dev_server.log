@@ -1,0 +1,5 @@
+
+> @faustjs/atlas-blueprint-portfolio@0.2.0 dev
+> faust dev
+
+error - Could not find NEXT_PUBLIC_WORDPRESS_URL environment variable.
