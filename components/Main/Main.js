@@ -1,6 +1,10 @@
 import * as SELECTORS from 'constants/selectors';
 
+import classNames from 'classnames/bind';
+
 import styles from './Main.module.scss';
+
+const cx = classNames.bind(styles);
 
 /**
  * Render the Main component.
@@ -15,7 +19,7 @@ export default function Main({ children, className, ...props }) {
     <main
       id={SELECTORS.MAIN_CONTENT_ID}
       tabIndex="-1"
-      className={[styles.main, className].join(' ')}
+      className={cx('main', className)}
       {...props}
     >
       {children}
