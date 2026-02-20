@@ -11,11 +11,11 @@ let cx = classNames.bind(styles);
  * @returns {React.ReactElement} The TaxonomyTerms component
  */
 export default function TaxonomyTerms({ post, taxonomy }) {
-  const termLinks = post?.[taxonomy]?.edges.map((edge, index) => {
-    const { name, uri } = edge.node;
+  const termLinks = post?.[taxonomy]?.edges.map((edge) => {
+    const { name, uri, databaseId } = edge.node;
     return (
       uri && (
-        <Link legacyBehavior key={index} href={uri}>
+        <Link legacyBehavior key={databaseId} href={uri}>
           {name}
         </Link>
       )

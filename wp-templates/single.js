@@ -86,6 +86,7 @@ Component.query = gql`
       tags {
         edges {
           node {
+            databaseId
             name
             uri
           }
@@ -94,6 +95,7 @@ Component.query = gql`
       categories {
         edges {
           node {
+            databaseId
             name
             uri
           }
