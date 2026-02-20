@@ -18,13 +18,11 @@ import appConfig from 'app.config';
 
 export default function Archive(props) {
   const { uri, name, __typename } = props.data.nodeByUri;
-  const { data, loading, fetchMore } = useQuery(Archive.query, {
+  const { data: queryData, loading, fetchMore } = useQuery(Archive.query, {
     variables: Archive.variables({ uri }),
   });
 
-  if (loading) {
-    return <></>;
-  }
+  const data = queryData ?? props.data;
 
   const { title: siteTitle, description: siteDescription } =
     data?.generalSettings;
