@@ -52,9 +52,9 @@ export default function SearchResults({ searchResults, isLoading }) {
 
       {isLoading === true && (
         <>
-          <LoadingSearchResult />
-          <LoadingSearchResult />
-          <LoadingSearchResult />
+          {Array.from({ length: 3 }).map((_, i) => (
+            <LoadingSearchResult key={i} />
+          ))}
         </>
       )}
     </>
