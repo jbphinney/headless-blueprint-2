@@ -27,7 +27,7 @@ export default function useFocusFirstNewResult(posts) {
         return focusIndex;
       });
     }
-  }, [posts, firstNewResultIndex]);
+  }, [posts]);
 
   return { firstNewResultRef, firstNewResultIndex };
 }
