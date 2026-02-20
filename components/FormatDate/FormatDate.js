@@ -1,16 +1,11 @@
-export default function FormatDate({ date }) {
-  let formattedDate = new Date(date);
+import { getFormattedDate } from './formatDateLogic';
 
-  if (isNaN(formattedDate.valueOf())) {
+export default function FormatDate({ date }) {
+  const formattedDate = getFormattedDate(date);
+
+  if (!formattedDate) {
     return null;
   }
 
-  const timeformat = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour12: false,
-  };
-
-  return <>{formattedDate.toLocaleDateString('en-US', timeformat)}</>;
+  return <>{formattedDate}</>;
 }
