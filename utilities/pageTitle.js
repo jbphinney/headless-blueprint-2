@@ -8,7 +8,7 @@
 function pageTitle(
   generalSettings,
   titleOverride = null,
-  descriptionOverride = null
+  descriptionOverride = null,
 ) {
   const title = titleOverride ? titleOverride : generalSettings?.title;
   const description = descriptionOverride

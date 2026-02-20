@@ -50,7 +50,7 @@ export default function SearchResults({ searchResults, isLoading }) {
         </div>
       ))}
 
-      {isLoading === true && (
+      {isLoading && (
         <>
           <LoadingSearchResult />
           <LoadingSearchResult />
