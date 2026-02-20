@@ -8,6 +8,7 @@
     "generate": "faust generatePossibleTypes",
     "start": "faust start",
     "lint": "faust lint",
+    "test": "node --test utilities/*.test.mjs",
     "clean": "rimraf .next node_modules",
     "wpe-build": "faust build",
     "format": "prettier --write './**/*.{js,jsx,md,mdx,css,scss}'",
