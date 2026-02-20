@@ -1,4 +1,5 @@
 import className from 'classnames/bind';
+import { sanitize } from 'utilities';
 
 import styles from './ContentWrapper.module.scss';
 
@@ -15,7 +16,7 @@ const cx = className.bind(styles);
 export default function ContentWrapper({ content, className, children }) {
   return (
     <article className={cx('content', className)}>
-      <div dangerouslySetInnerHTML={{ __html: content ?? '' }} />
+      <div dangerouslySetInnerHTML={{ __html: sanitize(content ?? '') }} />
       {children}
     </article>
   );
