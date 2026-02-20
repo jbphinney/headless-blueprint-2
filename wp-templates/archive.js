@@ -3,6 +3,7 @@ import { pageTitle } from 'utilities';
 
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import { ArchivePostFragment } from '../fragments/ArchivePage';
 import {
   Header,
   Footer,
@@ -11,7 +12,6 @@ import {
   EntryHeader,
   NavigationMenu,
   Posts,
-  FeaturedImage,
   SEO,
 } from '../components';
 import appConfig from 'app.config';
@@ -38,7 +38,7 @@ export default function Archive(props) {
         title={pageTitle(
           props?.data?.generalSettings,
           `${__typename}: ${name}`,
-          siteTitle
+          siteTitle,
         )}
         description={siteDescription}
       />
@@ -70,7 +70,7 @@ export default function Archive(props) {
 Archive.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
-  ${FeaturedImage.fragments.entry}
+  ${ArchivePostFragment}
   query GetCategoryPage(
     $uri: String!
     $first: Int!
@@ -89,23 +89,7 @@ Archive.query = gql`
         contentNodes(first: $first, after: $after) {
           edges {
             node {
-              id
-              ... on NodeWithTitle {
-                title
-              }
-              ... on NodeWithContentEditor {
-                content
-              }
-              date
-              uri
-              ...FeaturedImageFragment
-              ... on NodeWithAuthor {
-                author {
-                  node {
-                    name
-                  }
-                }
-              }
+              ...ArchivePostFragment
             }
           }
           pageInfo {
@@ -123,23 +107,7 @@ Archive.query = gql`
           contentNodes(first: $first, after: $after) {
             edges {
               node {
-                id
-                ... on NodeWithTitle {
-                  title
-                }
-                ... on NodeWithContentEditor {
-                  content
-                }
-                date
-                uri
-                ...FeaturedImageFragment
-                ... on NodeWithAuthor {
-                  author {
-                    node {
-                      name
-                    }
-                  }
-                }
+                ...ArchivePostFragment
               }
             }
             pageInfo {
@@ -154,23 +122,7 @@ Archive.query = gql`
           contentNodes(first: $first, after: $after) {
             edges {
               node {
-                id
-                ... on NodeWithTitle {
-                  title
-                }
-                ... on NodeWithContentEditor {
-                  content
-                }
-                date
-                uri
-                ...FeaturedImageFragment
-                ... on NodeWithAuthor {
-                  author {
-                    node {
-                      name
-                    }
-                  }
-                }
+                ...ArchivePostFragment
               }
             }
             pageInfo {
