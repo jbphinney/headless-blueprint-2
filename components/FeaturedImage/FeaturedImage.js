@@ -29,6 +29,8 @@ export default function FeaturedImage({
   width = width ? width : image?.mediaDetails?.width;
   height = height ? height : image?.mediaDetails?.height;
 
+  const { style, ...otherProps } = props;
+
   return src && width && height ? (
     <figure className={[styles['featured-image'], className].join(' ')}>
       <Image
@@ -36,9 +38,13 @@ export default function FeaturedImage({
         width={width}
         height={height}
         alt={altText}
-        objectFit="cover"
-        layout="responsive"
-        {...props}
+        style={{
+          objectFit: 'cover',
+          width: '100%',
+          height: 'auto',
+          ...style,
+        }}
+        {...otherProps}
       />
     </figure>
   ) : null;
