@@ -8,6 +8,7 @@ import className from 'classnames/bind';
 import { Carousel } from 'react-responsive-carousel';
 
 import TestimonialItem from '../TestimonialItem';
+import { sanitize } from '../../utilities';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import styles from './Testimonials.module.scss';
@@ -52,7 +53,9 @@ export default function Testimonials({ testimonials }) {
               <div
                 className={cx('slide-content')}
                 dangerouslySetInnerHTML={{
-                  __html: testimonial?.testimonialFields?.testimonialContent,
+                  __html: sanitize(
+                    testimonial?.testimonialFields?.testimonialContent
+                  ),
                 }}
               />
             </TestimonialItem>
