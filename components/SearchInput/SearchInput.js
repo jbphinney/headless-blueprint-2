@@ -14,9 +14,8 @@ import styles from './SearchInput.module.scss';
 export default function SearchInput({ value, onChange, ...props }) {
   const input = useRef();
 
-  // Clear and focus the input on initial render
+  // Focus the input on initial render
   useEffect(() => {
-    input.current.value = '';
     input.current.focus();
   }, []);
 
