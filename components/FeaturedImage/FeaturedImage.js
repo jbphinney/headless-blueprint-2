@@ -24,7 +24,7 @@ export default function FeaturedImage({
   } else {
     src = image?.sourceUrl;
   }
-  const { altText } = image || '';
+  const altText = image?.altText;
 
   width = width ? width : image?.mediaDetails?.width;
   height = height ? height : image?.mediaDetails?.height;
