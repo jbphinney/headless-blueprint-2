@@ -26,8 +26,8 @@ export default function FeaturedImage({
   }
   const { altText } = image || '';
 
-  width = width ? width : image?.mediaDetails?.width;
-  height = height ? height : image?.mediaDetails?.height;
+  width = width || image?.mediaDetails?.width;
+  height = height || image?.mediaDetails?.height;
 
   return src && width && height ? (
     <figure className={[styles['featured-image'], className].join(' ')}>
